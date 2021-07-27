@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.clickImage {
+  height: 23px;
+  cursor: pointer;
+}
+.image {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  & img {
+    height: 23px;
+  }
+}

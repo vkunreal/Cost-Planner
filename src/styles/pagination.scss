@@ -1,0 +1,23 @@
+.pagination {
+  width: 800px;
+  height: 50px;
+  border: 2px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-container {
+  display: flex;
+  font-size: 25px;
+  gap: 15px;
+  margin-top: 15px;
+
+  & p {
+    cursor: pointer;
+  }
+}
+
+.active {
+  color: #25a79a;
+}

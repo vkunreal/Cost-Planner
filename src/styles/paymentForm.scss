@@ -1,0 +1,111 @@
+.button-show {
+  width: 200px;
+  height: 45px;
+  background-color: #25a79a;
+  font-size: 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: #25b79a;
+  }
+}
+.btn-plus {
+  font-size: 30px;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: 12px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.modal-wrapper {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 2;
+
+  & input,
+  button {
+    width: 95%;
+    height: 45px;
+    border-radius: 15px;
+    border: 1px solid rgb(230, 230, 230);
+  }
+  & input {
+    padding-left: 15px;
+    outline: none;
+  }
+  & button {
+    background-color: #25a79a;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    width: 40%;
+    margin-top: 5px;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: #25b79a;
+    }
+  }
+}
+.btn-box {
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 360px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.error {
+  color: red;
+}
+
+.inputSelect {
+  width: 95%;
+  height: 45px;
+  border-radius: 15px;
+  border: 1px solid rgb(230, 230, 230);
+  outline: none;
+
+  & option {
+    text-align: center;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
