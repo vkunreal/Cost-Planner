@@ -6,14 +6,20 @@
   align-items: center;
   justify-content: center;
 }
+
 .container {
   min-height: 530px;
 }
+
 #header,
 .payment {
   max-width: 800px;
+}
+
+.payment {
   border-bottom: 1px solid #eee;
 }
+
 .payment:hover {
   background-color: #eee;
 
@@ -23,6 +29,7 @@
     align-items: center;
   }
 }
+
 #details {
   display: none;
 

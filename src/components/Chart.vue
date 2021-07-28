@@ -14,12 +14,18 @@ export default {
           plotShadow: false,
           type: "pie",
         },
+
         exporting: {
+          enabled: false,
+        },
+
+        credits: {
           enabled: false,
         },
         title: {
           text: "",
         },
+
         series: [
           {
             data: [

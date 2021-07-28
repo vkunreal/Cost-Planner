@@ -55,6 +55,7 @@ export default {
       const index = this.$store.getters.getPageNumber + this.settings.index;
 
       this.$store.commit("removePayment", index);
+      this.$root.$emit("updateDiagram");
       this.$emit("closeContextMenu");
     },
     editPayment() {

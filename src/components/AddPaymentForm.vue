@@ -96,6 +96,7 @@ export default {
       };
 
       this.addDataToPaymentList(data);
+      this.$root.$emit("updateDiagram");
       this.dialog = false;
 
       this.date = "";
@@ -119,6 +120,7 @@ export default {
       });
 
       this.dialog = false;
+      this.$root.$emit("updateDiagram");
     },
 
     showModal() {

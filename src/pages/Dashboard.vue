@@ -11,7 +11,7 @@
           <PaginationComp />
         </v-col>
 
-        <v-col>
+        <v-col :cols="6">
           <Diagram />
         </v-col>
       </v-row>

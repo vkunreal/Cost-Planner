@@ -1,7 +1,6 @@
 <template>
   <div>
     <chart :data="points"></chart>
-    <button @click="clickFunc">Click</button>
   </div>
 </template>
 
@@ -21,7 +20,7 @@ export default {
   },
 
   methods: {
-    clickFunc() {
+    updateDiagram() {
       const payments = this.$store.getters.getPaymentsList;
 
       let result = {};
@@ -44,24 +43,9 @@ export default {
   },
 
   mounted() {
-    const payments = this.$store.getters.getPaymentsList;
-
-    let result = {};
-
-    for (let i = 0; i < payments.length; i++) {
-      if (Object.prototype.hasOwnProperty.call(result, payments[i].type)) {
-        result[payments[i].type] += payments[i].amount;
-      } else {
-        result[payments[i].type] = payments[i].amount;
-      }
-    }
-
-    result = Object.entries(result).map((entry) => ({
-      name: entry[0],
-      y: entry[1],
-    }));
-
-    this.points = result;
+    this.$root.$on("updateDiagram", () => {
+      this.updateDiagram();
+    });
   },
 };
 </script>
