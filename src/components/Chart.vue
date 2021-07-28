@@ -23,7 +23,7 @@ export default {
           enabled: false,
         },
         title: {
-          text: "",
+          text: "Your payments",
         },
 
         series: [

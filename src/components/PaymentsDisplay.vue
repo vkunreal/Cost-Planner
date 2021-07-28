@@ -20,6 +20,7 @@
         :key="index"
         :class="'payment'"
         :id="index"
+        :align="right"
       >
         <v-col :cols="1">{{ pageNumber * 10 + index + 1 }}</v-col>
         <v-col :cols="4">{{ payment.date }}</v-col>
@@ -88,6 +89,7 @@ export default {
           },
         ],
       };
+
       this.contextMenuSettings = settings;
     },
 

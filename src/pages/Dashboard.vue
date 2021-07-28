@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-container>
-      <div class="text-h5 text-sm-h2 mb-6">My personal costs</div>
-      <v-row>
-        <v-col :cols="6">
+      <div class="text-h5 text-sm-h3 mb-6" align="left">My personal costs</div>
+      <v-row class="d-flex flex-sm-column flex-md-row">
+        <v-col align="left">
           <AddPaymentForm class="mb-8" />
 
           <PaymentsDisplay />
@@ -11,7 +11,7 @@
           <PaginationComp />
         </v-col>
 
-        <v-col :cols="6">
+        <v-col align="right">
           <Diagram />
         </v-col>
       </v-row>
