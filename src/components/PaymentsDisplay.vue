@@ -124,6 +124,7 @@ export default {
   created() {
     this.$store.dispatch("fetchData").then(() => {
       this.payments = this.getPagePayments;
+      this.$root.$emit("Diagram");
       this.changeLoadingStatus();
     });
   },

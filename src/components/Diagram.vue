@@ -1,9 +1,12 @@
 <template>
-  <chart :data="points"></chart>
+  <div>
+    <chart :data="points"></chart>
+    <button @click="clickFunc">Click</button>
+  </div>
 </template>
 
 <script>
-import Chart from "./Chart.vue";
+import Chart from "./Chart";
 
 export default {
   name: "Diagram",
@@ -16,25 +19,49 @@ export default {
       points: [],
     };
   },
-  beforeDestroy() {
-    clearInterval(this.intervalId);
+
+  methods: {
+    clickFunc() {
+      const payments = this.$store.getters.getPaymentsList;
+
+      let result = {};
+
+      for (let i = 0; i < payments.length; i++) {
+        if (Object.prototype.hasOwnProperty.call(result, payments[i].type)) {
+          result[payments[i].type] += payments[i].amount;
+        } else {
+          result[payments[i].type] = payments[i].amount;
+        }
+      }
+
+      result = Object.entries(result).map((entry) => ({
+        name: entry[0],
+        y: entry[1],
+      }));
+
+      this.points = result;
+    },
   },
+
   mounted() {
-    // this.intervalId = setInterval(() => {
-    //   this.points2 = [
-    //     {
-    //       name: "test2",
-    //       y: parseFloat((Math.random() * 100.0).toFixed(2)),
-    //     },
-    //   ];
-    // }, 2000);
     const payments = this.$store.getters.getPaymentsList;
+
+    let result = {};
+
     for (let i = 0; i < payments.length; i++) {
-      this.points.push({
-        name: payments.type,
-        y: parseFloat(Math.random() * 100).toFixed(2),
-      });
+      if (Object.prototype.hasOwnProperty.call(result, payments[i].type)) {
+        result[payments[i].type] += payments[i].amount;
+      } else {
+        result[payments[i].type] = payments[i].amount;
+      }
     }
+
+    result = Object.entries(result).map((entry) => ({
+      name: entry[0],
+      y: entry[1],
+    }));
+
+    this.points = result;
   },
 };
 </script>

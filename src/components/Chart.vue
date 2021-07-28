@@ -18,61 +18,51 @@ export default {
           enabled: false,
         },
         title: {
-          text: "Your payments",
+          text: "",
         },
         series: [
           {
             data: [
               {
                 name: "Sport",
-                y: 29.9,
+                y: 0,
               },
               {
                 name: "Food",
-                y: 29.9,
+                y: 0,
               },
               {
                 name: "Education",
-                y: 159.94,
+                y: 0,
               },
               {
                 name: "Transport",
-                y: 19.94,
+                y: 0,
               },
               {
                 name: "Car",
-                y: 49.94,
+                y: 0,
               },
             ],
           },
         ],
       },
       updateArgs: [true, true, { duration: 1000 }],
+      types: [],
     };
   },
   watch: {
-    title(newValue) {
-      this.chartOptions.title.text = newValue;
-    },
-    data(newValue) {
-      console.log("pie watch fired", newValue);
-      for (let obj of newValue) {
-        let x = this.$children[0].chart.series[0].data.findIndex(
-          (s) => s.name == obj.name
-        );
-        if (x != -1) {
-          console.log("pair found", obj, obj.y);
-          this.$children[0].chart.series[0].data[x].update(obj.y);
-        } else {
-          //New key value pair
-        }
-      }
+    data() {
+      this.chartOptions.series[0].data = this.data;
     },
   },
   mounted() {
-    if (typeof this.title !== "undefined") {
-      this.chartOptions.title.text = this.title;
-    }
+    this.$root.$on("Diagram", () => {
+      this.$store.getters.getPaymentsList.forEach((elem) => {
+        if (this.types.includes(elem.type)) return;
+        else this.types.push(elem.type);
+      });
+    });
   },
 };
 </script>
