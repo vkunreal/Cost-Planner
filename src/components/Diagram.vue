@@ -1,16 +1,53 @@
 <template>
-  <div class="home">
-    <LineChart />
-  </div>
+  <chart :data="points"></chart>
 </template>
 
 <script>
-import LineChart from "../plugins/Diagram.vue";
+import Chart from "./Chart.vue";
 
 export default {
-  name: "Home",
+  name: "Diagram",
   components: {
-    LineChart,
+    chart: Chart,
+  },
+  data() {
+    return {
+      intervalId: null,
+      points: [],
+    };
+  },
+  beforeDestroy() {
+    clearInterval(this.intervalId);
+  },
+  mounted() {
+    // this.intervalId = setInterval(() => {
+    //   this.points2 = [
+    //     {
+    //       name: "test2",
+    //       y: parseFloat((Math.random() * 100.0).toFixed(2)),
+    //     },
+    //   ];
+    // }, 2000);
+    const payments = this.$store.getters.getPaymentsList;
+    for (let i = 0; i < payments.length; i++) {
+      this.points.push({
+        name: payments.type,
+        y: parseFloat(Math.random() * 100).toFixed(2),
+      });
+    }
   },
 };
 </script>
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 70%;
+}
+</style>
