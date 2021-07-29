@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+header h1 {
+  margin: 25px;
+  font-size: 55px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #25a79a;
+  border-radius: 5px;
+}

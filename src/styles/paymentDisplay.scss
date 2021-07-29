@@ -1,0 +1,51 @@
+.loading {
+  font-size: 35px;
+  margin: 25px auto;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  min-height: 540px;
+}
+
+#header,
+.payment {
+  max-width: 800px;
+}
+
+.payment {
+  border-bottom: 1px solid #eee;
+}
+
+.payment:hover {
+  background-color: #eee;
+
+  #details {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+#details {
+  display: none;
+
+  & img {
+    width: 23px;
+    cursor: pointer;
+  }
+}
+
+.close-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  & img {
+    height: 23px;
+  }
+}
