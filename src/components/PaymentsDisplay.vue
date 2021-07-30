@@ -26,7 +26,7 @@
         <v-col :cols="4">{{ payment.date }}</v-col>
         <v-col :cols="4">{{ payment.type }}</v-col>
         <v-col :cols="2">{{ payment.amount }}</v-col>
-        <v-col :cols="1" :id="'details'"
+        <v-col :cols="1" :id="'details'" :class="{ active: isActive }"
           ><context-menu
             :settings="contextMenuSettings"
             @clickOptions="clickOptions"
@@ -52,6 +52,7 @@ export default {
     contextMenuSettings: {},
     clickedElem: "",
     clickedOption: "",
+    isActive: false,
   }),
 
   components: {
@@ -70,9 +71,14 @@ export default {
       this.clickedOption = e.target.parentNode;
 
       this.clickedElem.style.backgroundColor = "#efefef";
+      this.clickedOption.removeAttribute("id");
+      this.isActive = true;
 
-      this.clickedOption.setAttribute("class", "close-active");
       const index = this.clickedElem.getAttribute("id");
+
+      document.body.addEventListener("click", () => {
+        this.closeContextMenu();
+      });
 
       const settings = {
         index,
@@ -99,8 +105,8 @@ export default {
 
     closeContextMenu() {
       this.clickedElem.style.backgroundColor = "";
-      this.clickedOption.removeAttribute("class");
       this.clickedOption.setAttribute("id", "details");
+      this.isActive = false;
     },
 
     ...mapMutations(["removePayment", "changeLoadingStatus"]),

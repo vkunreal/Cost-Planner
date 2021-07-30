@@ -32,20 +32,16 @@
 
 #details {
   display: none;
+  justify-content: flex-end;
+  align-items: center;
 
   & img {
     width: 23px;
     cursor: pointer;
   }
 }
-
-.close-active {
+.active {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  & img {
-    height: 23px;
-  }
 }
