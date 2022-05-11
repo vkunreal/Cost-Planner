@@ -8,8 +8,8 @@ const router = new Router({
   routes: [
     {
       path: "/dashboard",
-      name: "Dashboard",
-      component: () => import("../pages/Dashboard.vue"),
+      name: "DashboardView",
+      component: () => import("../views/DashboardView"),
     },
     {
       path: "/",
@@ -18,17 +18,17 @@ const router = new Router({
     {
       path: "/about",
       name: "About",
-      component: () => import("../pages/About.vue"),
+      component: () => import("../views/AboutView.vue"),
     },
     {
       path: "/add/payment/:type",
       name: "AddPayment",
-      component: () => import("../pages/Dashboard.vue"),
+      component: () => import("../views/DashboardView.vue"),
     },
     {
       path: "/notfound",
       name: "NotFound",
-      component: () => import("../pages/NotFound.vue"),
+      component: () => import("../views/NotFound.vue"),
     },
     {
       path: "*",

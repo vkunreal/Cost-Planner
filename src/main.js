@@ -1,8 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import store from "./store";
 import router from "./router";
+import store from "./store";
 
 import modal from "./plugins/ModalWindow";
 import contextMenu from "./plugins/ContextMenu";
@@ -26,8 +26,8 @@ Vue.use(modal);
 Vue.use(contextMenu);
 
 new Vue({
-  render: (h) => h(App),
+  router,
   store,
   vuetify,
-  router,
+  render: (h) => h(App),
 }).$mount("#app");

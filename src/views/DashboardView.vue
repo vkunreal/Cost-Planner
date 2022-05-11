@@ -26,7 +26,7 @@ import PaginationComp from "../components/PaginationComp.vue";
 import Diagram from "../components/Diagram.vue";
 
 export default {
-  name: "Dashboard",
+  name: "DashboardView",
 
   components: {
     AddPaymentForm,
