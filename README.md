@@ -1,4 +1,4 @@
-# Task Scheduler
+# Cost Planner
 
 ## The project helps you manage your spending. Convenient list of expenses with the ability to edit and delete. A data chart is also provided.
 
